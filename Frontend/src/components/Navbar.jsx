@@ -39,15 +39,16 @@ export default function Navbar() {
   return (
     <>
       <header className="navbar-section shadow sticky-top bg-white">
-        <nav className="navbar navbar-expand-lg">
+        <nav className="navbar navbar-expand-lg py-1">
           <div className="container-fluid px-4">
             {/* Logo */}
-            <div className="logo-section">
+            <div className="logo-section ms-4">
               <Link to="/">
                 <img
                   src="https://pagegpt.pro/api/utilities/image/ecommerce-logo-maker/confirmed/1694711464777-71857.png"
                   alt="logo"
                   width="115"
+                  
                 />
               </Link>
             </div>
@@ -64,7 +65,8 @@ export default function Navbar() {
 
             <div className="collapse navbar-collapse" id="navbarNav">
               {/* Nav Links */}
-              <ul className="navbar-nav mx-auto nav-link gap-3">
+              {/* <ul className="navbar-nav mx-auto nav-link gap-3"> */}
+                <ul className="navbar-nav ms-auto nav-link gap-3">
                 <li className="nav-item">
                   <Link className="nav-link" to="/">Home</Link>
                 </li>
@@ -88,7 +90,7 @@ export default function Navbar() {
               {/* Right Side */}
               <div className="d-flex align-items-center gap-3">
                 {/* Cart */}
-                <Link to="/cart" className="position-relative text-dark fs-5">
+                <Link to="/cart" className="position-relative text-dark fs-4">
                   🛒
                   {cartCount > 0 && (
                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -102,20 +104,20 @@ export default function Navbar() {
                   <div className="d-flex gap-2">
 
                     {/* Login */}
-                    <Link
+                    { <Link
                       to="/login"
                       className="btn btn-primary px-4 py-2 rounded-pill fw-semibold"
                     >
                       Login
-                    </Link>
+                    </Link> }
 
                     {/* Signup */}
-                    <Link
+                    { <Link
                       to="/signup"
                       className="btn btn-primary px-4 py-2 rounded-pill fw-semibold"
                     >
                       Signup
-                    </Link>
+                    </Link> }
 
                   </div>
                 ) : (

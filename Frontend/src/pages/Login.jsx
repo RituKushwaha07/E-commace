@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import api from "../api/axios";
+import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // 👈 icon import
 
 export default function Login() {
   const [form, setForm] = useState({
@@ -9,6 +11,7 @@ export default function Login() {
   });
 
   const [msg, setMsg] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // 👁️ toggle state
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -41,6 +44,7 @@ export default function Login() {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+      
       <div className="card shadow p-4" style={{ width: "350px" }}>
         
         <h3 className="text-center mb-3">Login to Your Account</h3>
@@ -53,6 +57,7 @@ export default function Login() {
 
         <form onSubmit={handleSubmit}>
           
+          {/* Email */}
           <div className="mb-3">
             <input
               type="email"
@@ -65,23 +70,42 @@ export default function Login() {
             />
           </div>
 
-          <div className="mb-3">
+          {/* Password with Icon */}
+          <div className="mb-3 position-relative">
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Enter Password"
               value={form.password}
               onChange={handleChange}
-              className="form-control"
+              className="form-control pe-5"
               required
             />
+
+            {/* Eye Icon */}
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              style={{
+                position: "absolute",
+                right: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+                color: showPassword ? "#6366f1" : "#888",
+                fontSize: "18px"
+              }}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
           </div>
 
+          {/* Button */}
           <button type="submit" className="btn btn-primary w-100">
             Login
           </button>
 
         </form>
+
       </div>
     </div>
   );
