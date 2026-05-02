@@ -1,0 +1,88 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
+import api from "../api/axios";
+
+export default function Login() {
+  const [form, setForm] = useState({
+    email: "",
+    password: ""
+  });
+
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await api.post("/auth/login", form);
+
+      // 🔐 Save token
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("userId", res.data.user.id);
+
+      setMsg("Login Successful");
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+
+    } catch (err) {
+      setMsg(err.response?.data?.message || "An error occurred");
+    }
+  };
+
+  return (
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+      <div className="card shadow p-4" style={{ width: "350px" }}>
+        
+        <h3 className="text-center mb-3">Login to Your Account</h3>
+
+        {msg && (
+          <div className="alert alert-danger text-center py-2">
+            {msg}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
+          
+          <div className="mb-3">
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter Email"
+              value={form.email}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+
+          <div className="mb-3">
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              value={form.password}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn btn-primary w-100">
+            Login
+          </button>
+
+        </form>
+      </div>
+    </div>
+  );
+}
