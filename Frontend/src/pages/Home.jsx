@@ -36,6 +36,13 @@ export default function Home() {
       0
     );
 
+    // const totalItems = res.data.cart.items.reduce(
+    //   (sum, item) => sum + item.quantity,
+    //   0
+    // );
+
+
+
     localStorage.setItem("cartCount", total);
     window.dispatchEvent(new Event("cartUpdated"));
   };

@@ -8,6 +8,7 @@ const productRoutes = require("./routes/productsRoutes");
 const cartRoutes = require("./routes/cart");
 const addressRoutes = require("./routes/address");
 const orderRoutes = require("./routes/order");
+const aboutRoutes = require("./routes/about-route");
 
 // Middleware
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/address", addressRoutes);
 app.use("/api/order", orderRoutes);
+app.use("/api", aboutRoutes);
 
 
 app.get("/", (req, res) => {
