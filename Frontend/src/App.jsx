@@ -18,7 +18,7 @@ import OrderSuccess from "./pages/OrderSuccess";
 import About from "./components/About";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
-
+import Service from "./components/Service";
 
 
 
@@ -41,6 +41,7 @@ function Layout() {
         <Route path="/about" element={<About/>} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/service" element={<Service/>}/>
 
         {/* Product */}
         <Route path="/product/:id" element={<ProductDetails />} />
