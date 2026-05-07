@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import api from "../api/axios";
 
+
 export default function Navbar() {
   const navigate = useNavigate();
   const [cartCount, setCartCount] = useState(0);
@@ -74,11 +75,11 @@ export default function Navbar() {
                   <Link className="nav-link" to="/about">About</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/services">Service</Link>
+                  <Link className="nav-link" to="/service">Service</Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="/sections">Sections</Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link" to="/contact">Contact</Link>
                 </li>

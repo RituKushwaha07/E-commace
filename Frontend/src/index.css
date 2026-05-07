@@ -11,6 +11,8 @@
 body {
   background: linear-gradient(120deg, #fff1f5, #fdf2f8);
   color: #2d2d2d;
+    transition: all 0.3s ease;
+
 }
 
 /* ================= NAVBAR ================= */
@@ -161,8 +163,5 @@ th {
 .hover-glow:hover {
   box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
 }
-
-
-
 
 
