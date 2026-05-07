@@ -15,14 +15,16 @@ import Cart from "./pages/Cart";
 import CheckoutAddress from "./pages/CheckoutAddress";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
-import About from "./pages/About";
-import Gallery from "./pages/Gallery";
-import Contact from "./pages/Contact";
+import About from "./components/About";
+import Gallery from "./components/Gallery";
+import Contact from "./components/Contact";
+
+
+
 
 function Layout() {
   const location = useLocation();
 
-  // ❌ login/signup page par navbar/footer hide
   const hideLayout =
     location.pathname === "/login" ||
     location.pathname === "/signup";
