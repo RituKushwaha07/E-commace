@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 const images = [
@@ -9,7 +10,6 @@ const images = [
   { id: 6, src: "https://nayejaisa.com/wp-content/uploads/2025/02/Images-39-4.webp", title: "Dell Laptop", category: "Laptops" },
   { id: 7, src: "https://m.media-amazon.com/images/I/71i1AQYjjoL.jpg", title: "OnePlus", category: "Mobiles" },
   { id: 8, src: "https://i.guim.co.uk/img/media/b253ca0b9578cd38e535d123f457249db34a8120/1025_473_5242_4193/master/5242.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=cf5e975fb93d6b7f7d851978c59952f0", title: "Tablet", category: "Tablets" },
-
 ];
 
 export default function Gallery() {
@@ -22,18 +22,19 @@ export default function Gallery() {
       : images.filter((img) => img.category === filter);
 
   return (
-    <div className="container mt-5">
+    <div className="container my-5">
 
-      {/* Title */}
-      <h2 className="text-center fw-bold mb-4">✨Product Gallery</h2>
+      {/* TITLE */}
+      <h2 className="text-center fw-bold mb-4">
+        ✨ Product Gallery
+      </h2>
 
-
-      {/* 🔥 Filter Buttons */}
-      <div className="text-center mb-4">
+      {/* FILTER BUTTONS (Responsive wrap) */}
+      <div className="d-flex flex-wrap justify-content-center gap-2 mb-4">
         {["All", "Mobiles", "Laptops", "Tablets"].map((cat) => (
           <button
             key={cat}
-            className={`btn btn-sm mx-2 px-3 rounded-pill ${
+            className={`btn btn-sm px-3 rounded-pill ${
               filter === cat ? "btn-primary" : "btn-outline-dark"
             }`}
             onClick={() => setFilter(cat)}
@@ -43,32 +44,40 @@ export default function Gallery() {
         ))}
       </div>
 
-      {/* Grid */}
+      {/* GRID (Responsive fixed) */}
       <div className="row g-3">
 
         {filteredImages.map((img) => (
-          <div key={img.id} className="col-6 col-md-4 col-lg-3">
+          <div key={img.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
 
-            <div className="position-relative overflow-hidden rounded-4 shadow-sm">
+            <div
+              className="position-relative overflow-hidden rounded-4 shadow-sm"
+              style={{ cursor: "pointer" }}
+              onClick={() => setSelected(img.src)}
+            >
 
-              {/* Image */}
+              {/* IMAGE */}
               <img
                 src={img.src}
+                alt={img.title}
                 className="img-fluid w-100"
-                style={{ height: "220px", objectFit: "cover" }}
+                style={{
+                  height: "220px",
+                  objectFit: "cover",
+                  transition: "0.3s",
+                }}
               />
 
-              {/* Overlay */}
+              {/* OVERLAY */}
               <div
                 className="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center text-white fw-bold"
                 style={{
                   background: "rgba(0,0,0,0.5)",
                   opacity: 0,
-                  transition: "0.3s"
+                  transition: "0.3s",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = 1)}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = 0)}
-                onClick={() => setSelected(img.src)}
               >
                 {img.title}
               </div>
@@ -80,16 +89,22 @@ export default function Gallery() {
 
       </div>
 
-      {/* Modal */}
+      {/* MODAL (Responsive image) */}
       {selected && (
         <div
           className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center"
-          style={{ background: "rgba(0,0,0,0.8)", zIndex: 999 }}
+          style={{ background: "rgba(0,0,0,0.85)", zIndex: 999 }}
           onClick={() => setSelected(null)}
         >
           <img
             src={selected}
-            style={{ maxHeight: "80%", borderRadius: "10px" }}
+            alt="preview"
+            className="img-fluid"
+            style={{
+              maxHeight: "85vh",
+              maxWidth: "90%",
+              borderRadius: "12px",
+            }}
           />
         </div>
       )}
