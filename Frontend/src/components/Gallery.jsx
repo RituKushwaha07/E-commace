@@ -8,7 +8,7 @@ const images = [
   { id: 5, src: "https://media.wired.com/photos/649b2dbfc859c4a1cdecc412/4:3/w_640,c_limit/Tablet.jpg", title: "Tablet", category: "Tablets" },
   { id: 6, src: "https://nayejaisa.com/wp-content/uploads/2025/02/Images-39-4.webp", title: "Dell Laptop", category: "Laptops" },
   { id: 7, src: "https://m.media-amazon.com/images/I/71i1AQYjjoL.jpg", title: "OnePlus", category: "Mobiles" },
-    { id: 8, src: "https://i.guim.co.uk/img/media/b253ca0b9578cd38e535d123f457249db34a8120/1025_473_5242_4193/master/5242.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=cf5e975fb93d6b7f7d851978c59952f0", title: "Tablet", category: "Tablets" },
+  { id: 8, src: "https://i.guim.co.uk/img/media/b253ca0b9578cd38e535d123f457249db34a8120/1025_473_5242_4193/master/5242.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=cf5e975fb93d6b7f7d851978c59952f0", title: "Tablet", category: "Tablets" },
 
 ];
 
@@ -25,7 +25,8 @@ export default function Gallery() {
     <div className="container mt-5">
 
       {/* Title */}
-      <h2 className="text-center fw-bold mb-4">Product Gallery</h2>
+      <h2 className="text-center fw-bold mb-4">✨Product Gallery</h2>
+
 
       {/* 🔥 Filter Buttons */}
       <div className="text-center mb-4">

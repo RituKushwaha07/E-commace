@@ -229,14 +229,7 @@ export default function About() {
             </div>
           </div>
         </div>
-
-        {/* subtle footer line (real project consistency) */}
-        <div className="text-center mt-5 pt-3 border-top">
-          <small className="text-muted">
-            © 2025 ShopEase — Secure | Fast | Trusted
-          </small>
-        </div>
-      </div>
+    </div>
     </>
   );
 }
