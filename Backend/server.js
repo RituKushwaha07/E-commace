@@ -30,13 +30,10 @@ app.use("/api/contact", contactRoutes);
 connectDB();
 
 
+const PORT = process.env.PORT || 5000;
 
-// Port
-// const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
+});
 
-// Server start
-// app.listen(PORT, () => {
-//   console.log(`Server is running on ${PORT}`);
-// });
-
-module.exports = app
+ 
