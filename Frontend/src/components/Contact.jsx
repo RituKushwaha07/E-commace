@@ -40,7 +40,7 @@ export default function Contact() {
     setSubmitStatus(null);
 
     try {
-      await axios.post("http://localhost:5000/api/contact", formData);
+      await axios.post("https://e-commace-backe.vercel.app/api/contact", formData);
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
       setTimeout(() => setSubmitStatus(null), 5000);

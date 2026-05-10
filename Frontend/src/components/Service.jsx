@@ -23,7 +23,7 @@ export default function Services() {
 
   // FETCH API
   useEffect(() => {
-    fetch("http://localhost:5000/api/services")
+    fetch("https://e-commace-backe.vercel.app/api/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data.services);
