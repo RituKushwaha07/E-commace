@@ -23,7 +23,7 @@ export default function Services() {
 
   // FETCH API
   useEffect(() => {
-    fetch("https://e-commace-backe.vercel.app/api/services")
+    fetch("https://e-commerce-backend-iota-eight.vercel.app/api/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data.services);

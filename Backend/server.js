@@ -32,12 +32,12 @@ connectDB();
 
 
 // Port
-// const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 // Server start
-// app.listen(PORT, () => {
-//   console.log(`Server is running on ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
+});
 
 module.exports = app
 
